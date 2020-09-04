@@ -32,8 +32,10 @@ SELECT director, COUNT(director) FROM peliculas GROUP BY director ORDER BY MIN(p
 
 --7. Indicar cuantos actores distintos hay
 
-SELECT actor, COUNT(actor) AS peliculas       
-FROM reparto GROUP BY actor;
+SELECT COUNT(actor) FROM(
+SELECT actor FROM reparto GROUP BY(actor))
+AS actor;
+
 
 --8. Indicar las películas estrenadas entre los años 1990 y 1999 (ambos incluidos) ordenadas por título de manera ascendente
 
